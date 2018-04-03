@@ -37,6 +37,10 @@ set_include_path(realpath(dirname(__FILE__).'/lib/pear') . PATH_SEPARATOR . get_
 // CHANGE 3 PARAMETERS HERE!
 // In this example: "root" is username, "no" is password, "dbname" is database name.
 //
+$DB_URL = getenv('DB_URL') ?: "mysql"
+$DB_USER = getenv('DB_USER') ?: "root"
+$DB_PASSWORD = getenv('DB_PASSWORD') ?: ""
+$DB_DATABASE = getenv('DATABASE') ?: "timetracker"
 define('DSN', 'mysqli://root:no@localhost/dbname?charset=utf8');
 // Do NOT change charset unless you upgraded from an older Time Tracker where charset was NOT specified
 // and now you see some corrupted characters. See http://dev.mysql.com/doc/refman/5.0/en/charset-mysql.html
@@ -142,7 +146,7 @@ define('TIME_FORMAT_DEFAULT', '%H:%M');
 // Default week start day.
 // Possible values: 0 - 6. 0 means Sunday.
 //
-define('WEEK_START_DEFAULT', 0);
+define('WEEK_START_DEFAULT', 1);
 
 
 // Default language of the application.
